@@ -1,50 +1,55 @@
-# Temple of Time 🛕
+# Vite Contentful App Template
 
-![alt text](https://64.media.tumblr.com/69de98405fbd0ff131c7e34e71e517f4/tumblr_nv4euoaSRu1ufzu8po1_500.gifv)
+Build a Contentful App using Vite. 🍟
 
-This is a template repository containing some stuff to save time when creating a new repo.
+![top-language](https://img.shields.io/github/languages/top/bcakmakoglu/vite-contentful-app-template)
+[![dependencies Status](https://status.david-dm.org/gh/bcakmakoglu/vite-contentful-app-template.svg)](https://david-dm.org/bcakmakoglu/vite-contentful-app-template)
+[![devDependencies Status](https://status.david-dm.org/gh/bcakmakoglu/vite-contentful-app-template.svg?type=dev)](https://david-dm.org/bcakmakoglu/vite-contentful-app-template?type=dev)
+![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/bcakmakoglu/vite-contentful-app-template)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bcakmakoglu/vite-contentful-app-template)
+![GitHub last commit](https://img.shields.io/github/last-commit/bcakmakoglu/vite-contentful-app-template)
 
-![top-language](https://img.shields.io/github/languages/top/bcakmakoglu/temple-of-time)
-[![dependencies Status](https://status.david-dm.org/gh/bcakmakoglu/temple-of-time.svg)](https://david-dm.org/bcakmakoglu/temple-of-time)
-[![devDependencies Status](https://status.david-dm.org/gh/bcakmakoglu/temple-of-time.svg?type=dev)](https://david-dm.org/bcakmakoglu/temple-of-time?type=dev)
-![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/bcakmakoglu/temple-of-time)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/bcakmakoglu/temple-of-time)
-![GitHub last commit](https://img.shields.io/github/last-commit/bcakmakoglu/temple-of-time)
+## 🪄 Features
 
-**Awesome Repo 🍟**
+![React](https://badges.aleen42.com/src/react.svg)
+![TypeScript](https://badges.aleen42.com/src/typescript.svg) 
+![Vite](https://badges.aleen42.com/src/vitejs.svg)
+![ESLint](https://badges.aleen42.com/src/eslint.svg)
 
+* 🛹 Write components in __React__
+* 🎨 [Windi CSS](https://github.com/windicss/windicss) - next generation utility-first CSS framework
+* ⚡️ Lightning fast development thanks to [__Vite__](https://vitejs.dev/guide/)!
+* ⚙️ [__APIs & Components Auto import__](https://github.com/antfu/unplugin-auto-import)
+    * 🪝 React & React Hooks
+    * 🏎 [Contentful Forma 36 React Components](https://f36.contentful.com/)
+* 💝 Enjoy a great dev experience with __TypeScript__
+* 💪 __ESLint__ + __Prettier__ to help you write neat code
 
 ## 🛠 Setup
-Some info on setup here.
-
 ```bash
-# install
-$ yarn add @braks/repo
+# create a new project
+$ npx degit bcakmakoglu/vite-contentful-app-template my-app
+# or just clone the repo
+$ git clone bcakmakoglu/vite-contentful-app-template my-app
 
-# or
-$ npm i --save @braks/repo
+# you're free to use the package manager of your choosing
+$ pnpm install
 ```
 
 ## 🧪 Development
-Info on development.
-
-Example for starting/building app:
+After setting up your Contentful App config on the Contentful Web Application,
+you can start development. 
+For instructions on setting up the App check the [documentation](https://www.contentful.com/developers/docs/extensibility/app-framework/tutorial/#embed-your-app-in-the-contentful-web-app).
 ```bash
 # start (dev)
-$ yarn dev
+$ pnpm dev
 
 # build app
-$ yarn build
+$ pnpm build
 
-# serve app from build
-$ yarn serve
+# serve app from dist dir
+$ pnpm serve
 
-# build dist
-$ yarn build:dist
+# upload dist dir to contentful
+$ pnpm upload
 ```
-
-## 🕵🏻‍♂️ Tests
-Some info about testing.
-
-# Sponsors 💝
-Possible sponsor list

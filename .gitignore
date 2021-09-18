@@ -95,6 +95,8 @@ hasura/db_data/
 
 # Codegen types
 types/types.ts
+auto-imports.d.ts
 
 build
 cypress/screenshots
+pnpm-lock.yaml

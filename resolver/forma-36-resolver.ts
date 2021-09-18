@@ -4,7 +4,7 @@ import { ImportInfo } from 'unplugin-auto-import/dist/types'
 import { camelToKebab, pascalize } from './utils'
 
 interface Options {
-  module: string
+  module?: string
   componentPrefix?: string // set to '' for no prefix
   enabledComponents?: string[] // which components to enable, i.e. accordion, asset etc.
 }
@@ -21,10 +21,14 @@ const inCollection = (name: string, enabledComponents?: string[]) => {
   )
 }
 
-const Resolver: (options: Options) => (name: string) => ImportInfo | undefined = (options: Options) => {
-  const { componentPrefix: rawPrefix = options.componentPrefix ?? 'cf', enabledComponents, module } = options
+const Resolver: (options: Options) => (name: string) => ImportInfo | undefined = (options) => {
+  const {
+    componentPrefix: rawPrefix = options.componentPrefix ?? 'cf',
+    enabledComponents,
+    module = '@contentful/forma-36-react-components',
+  } = options
 
-  return (name: string) => {
+  return (name) => {
     const prefix = rawPrefix ? `${camelToKebab(rawPrefix)}-` : ''
     const kebab = camelToKebab(name)
     if (!kebab.startsWith(prefix)) return

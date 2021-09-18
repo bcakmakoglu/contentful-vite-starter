@@ -21,18 +21,21 @@ const inCollection = (name: string, enabledComponents?: string[]) => {
   )
 }
 
-const Resolver: (options: Options) => (name: string) => ImportInfo | undefined = (options: Options) => (name: string) => {
+const Resolver: (options: Options) => (name: string) => ImportInfo | undefined = (options: Options) => {
   const { componentPrefix: rawPrefix = options.componentPrefix ?? 'cf', enabledComponents, module } = options
-  const prefix = rawPrefix ? `${camelToKebab(rawPrefix)}-` : ''
-  const kebab = camelToKebab(name)
-  if (!kebab.startsWith(prefix)) return
-  const slice = kebab.slice(prefix.length)
-  if (!inCollection(slice, enabledComponents)) return
-  if (resolve(slice, [...Object.keys(Components)])) {
-    return {
-      module,
-      name,
-      from: pascalize(slice),
+
+  return (name: string) => {
+    const prefix = rawPrefix ? `${camelToKebab(rawPrefix)}-` : ''
+    const kebab = camelToKebab(name)
+    if (!kebab.startsWith(prefix)) return
+    const slice = kebab.slice(prefix.length)
+    if (!inCollection(slice, enabledComponents)) return
+    if (resolve(slice, [...Object.keys(Components)])) {
+      return {
+        module,
+        name,
+        from: pascalize(slice),
+      }
     }
   }
 }

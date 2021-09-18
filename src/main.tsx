@@ -39,9 +39,8 @@ if (import.meta.env.NODE_ENV === 'development' && window.self === window.top) {
   init((sdk) => {
     const root = document.getElementById('root')
 
-    // install all modules
     // install all modules under `modules/`
-    Object.values(import.meta.globEager('./modules/*.ts')).map((i) => i.install?.(sdk))
+    // Object.values(import.meta.globEager('./modules/*.ts')).map((i) => i.install?.(sdk))
 
     // All possible locations for your app
     // Feel free to remove unused locations

@@ -21,6 +21,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": [
+      "@types/node",
       "vite/client",
       "@testing-library/jest-dom"
     ],

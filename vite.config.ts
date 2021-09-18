@@ -5,7 +5,8 @@ import { defineConfig } from 'vite'
 import WindiCSS from 'vite-plugin-windicss'
 import reactJsx from 'vite-react-jsx'
 
-import AutoImportResolver from './resolver'
+import Forma36Resolver from './resolver/forma-36-resolver'
+import ReactUseResolver from './resolver/react-use-resolver'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -27,8 +28,9 @@ export default defineConfig({
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
       ],
       resolvers: [
+        ReactUseResolver(),
         // Forma components auto import resolver
-        AutoImportResolver({
+        Forma36Resolver({
           module: '@contentful/forma-36-react-components',
           componentPrefix: 'forma', // i.e. you use the components as <FormaComponent />, feel free to use your preferred prefix
           enabledComponents: [], // which components you actually want to enable, useful if you want to explicitly include/exclude something
@@ -46,12 +48,6 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: ['react', 'react-dom'],
-    },
-  },
-
-  server: {
-    fs: {
-      strict: true,
     },
   },
 

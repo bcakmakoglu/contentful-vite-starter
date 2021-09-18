@@ -17,13 +17,14 @@ Build a Contentful App using Vite. 🍟
 ![ESLint](https://badges.aleen42.com/src/eslint.svg)
 
 * 🛹 Write components in __React__
-* 🎨 [Windi CSS](https://github.com/windicss/windicss) - next generation utility-first CSS framework
-* ⚡️ Lightning fast development thanks to [__Vite__](https://vitejs.dev/guide/)!
+* 🎨 Use the next generation utility-first CSS framework [Windi CSS](https://github.com/windicss/windicss)
+* ⚡️ Lightning fast development thanks to [__Vite 2__](https://vitejs.dev/guide/)!
 * ⚙️ [__APIs & Components Auto import__](https://github.com/antfu/unplugin-auto-import)
     * 🪝 React & React Hooks
-    * 🏎 [Contentful Forma 36 React Components](https://f36.contentful.com/)
+    * ✂️ [__React-Use__](https://github.com/streamich/react-use)
+    * 🏎 [Contentful __Forma 36__ React Components](https://f36.contentful.com/)
 * 💝 Enjoy a great dev experience with __TypeScript__
-* 💪 __ESLint__ + __Prettier__ to help you write neat code
+* 💪 Comes with __ESLint__ & __Prettier__ to help you write neat code
 
 ## 🛠 Setup
 ```bash

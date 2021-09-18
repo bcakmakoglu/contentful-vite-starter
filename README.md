@@ -16,15 +16,16 @@ Build a Contentful App using Vite. 🍟
 ![Vite](https://badges.aleen42.com/src/vitejs.svg)
 ![ESLint](https://badges.aleen42.com/src/eslint.svg)
 
-* 🛹 Write components in __React__
-* 🎨 Use the next generation utility-first CSS framework [Windi CSS](https://github.com/windicss/windicss)
-* ⚡️ Lightning fast development thanks to [__Vite 2__](https://vitejs.dev/guide/)!
-* ⚙️ [__APIs & Components Auto import__](https://github.com/antfu/unplugin-auto-import)
-    * 🪝 React & React Hooks
-    * ✂️ [__React-Use__](https://github.com/streamich/react-use)
-    * 🏎 [Contentful __Forma 36__ React Components](https://f36.contentful.com/)
-* 💝 Enjoy a great dev experience with __TypeScript__
-* 💪 Comes with __ESLint__ & __Prettier__ to help you write neat code
+- 🛹 Write components in __React__
+- 🎨 Use the next generation utility-first CSS framework [Windi CSS](https://github.com/windicss/windicss)
+- ⚡️ Lightning fast development thanks to [__Vite 2__](https://vitejs.dev/guide/)!
+- ⚙️ [__APIs & Components Auto import__](https://github.com/antfu/unplugin-auto-import)
+    - 🤹 __Components__ registered inside the [components](./src/components) directory
+    - 🪝 React & React Hooks
+    - ✂️ [__React-Use__](https://github.com/streamich/react-use)
+    - 🏎 [Contentful __Forma 36__ React Components](https://f36.contentful.com/)
+- 💝 Enjoy a great dev experience with __TypeScript__
+- 💪 Comes with __ESLint__ & __Prettier__ to help you write neat code
 
 ## 🛠 Setup
 ```bash

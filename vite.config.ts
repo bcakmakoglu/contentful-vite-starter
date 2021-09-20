@@ -56,6 +56,7 @@ export default defineConfig({
           prefix: 'forma', // i.e. you use the components as <FormaComponent />, feel free to use your preferred prefix
           resolve: (name, slice) => ({
             module: '@contentful/forma-36-react-components',
+            name,
             from: pascalCase(slice),
           }),
         }),

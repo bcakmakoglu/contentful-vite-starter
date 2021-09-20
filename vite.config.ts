@@ -17,6 +17,9 @@ export default defineConfig({
       '@/': `${resolve(__dirname)}/`,
     },
   },
+
+  base: './',
+
   plugins: [
     React(),
     reactJsx(),
@@ -53,12 +56,6 @@ export default defineConfig({
   server: {
     fs: {
       strict: true,
-    },
-  },
-
-  build: {
-    rollupOptions: {
-      external: ['react', 'react-dom', 'react-use'],
     },
   },
 

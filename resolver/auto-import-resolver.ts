@@ -35,10 +35,7 @@ const Resolver: (options?: Options) => (name: string) => ImportInfo | undefined 
   const { path, resolve = { module: '', name: '', from: undefined }, prefix: rawPrefix, enabledCollections } = options ?? {}
   if (!path || path === '') throw Error('No path specified in resolver! Check your vite.config.ts')
 
-  let collection: string[] = []
-  scan(path, validFile)
-    .then((items) => (collection = items))
-    .catch((err) => console.error(err))
+  let collection: string[] = scan(path, validFile)
 
   return (name: string) => {
     const prefix = rawPrefix ? `${kebabCase(rawPrefix)}-` : ''
@@ -48,7 +45,7 @@ const Resolver: (options?: Options) => (name: string) => ImportInfo | undefined 
     const slice = kebab.slice(prefix.length)
     if (!inCollection(slice, enabledCollections)) return
 
-    if (collection.some((item) => pascalCase(slice).startsWith(pascalCase(item)))) {
+    if (collection.some((item) => pascalCase(slice) === pascalCase(item))) {
       let importInfo: ImportInfo = {
         module: '',
         name: '',

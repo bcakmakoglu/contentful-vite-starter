@@ -23,14 +23,6 @@ import {
 } from '@contentful/app-sdk'
 import { render } from 'react-dom'
 
-import Config from './components/ConfigScreen'
-import Dialog from './components/Dialog'
-import EntryEditor from './components/EntryEditor'
-import Field from './components/Field'
-import LocalhostWarning from './components/LocalhostWarning'
-import Page from './components/Page'
-import Sidebar from './components/Sidebar'
-
 if (import.meta.env.NODE_ENV === 'development' && window.self === window.top) {
   // You can remove this if block before deploying your app
   const root = document.getElementById('root')
@@ -48,7 +40,7 @@ if (import.meta.env.NODE_ENV === 'development' && window.self === window.top) {
     const ComponentLocationSettings = [
       {
         location: locations.LOCATION_APP_CONFIG,
-        component: <Config sdk={sdk as AppExtensionSDK} />,
+        component: <ConfigScreen sdk={sdk as AppExtensionSDK} />,
       },
       {
         location: locations.LOCATION_ENTRY_FIELD,

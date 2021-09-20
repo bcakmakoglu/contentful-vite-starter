@@ -1,13 +1,12 @@
 import React from '@vitejs/plugin-react-refresh'
 import { resolve } from 'path'
+import { pascalCase } from 'scule'
 import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vite'
 import WindiCSS from 'vite-plugin-windicss'
 import reactJsx from 'vite-react-jsx'
 
-import ComponentsResolver from './resolver/components-resolver'
-import Forma36Resolver from './resolver/forma-36-resolver'
-import ReactUseResolver from './resolver/react-use-resolver'
+import AutoImportResolver from './resolver/auto-import-resolver'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -33,21 +32,38 @@ export default defineConfig({
       ],
       resolvers: [
         // Components auto import resolver
-        ComponentsResolver({
-          // componentPrefix: ''
+        AutoImportResolver({
+          path: resolve(__dirname, 'src/components'),
+          resolve: (_, slice) => ({
+            module: `~/components/${pascalCase(slice)}`,
+            name: pascalCase(slice),
+            from: 'default',
+          }),
         }),
         // React Use auto import resolver
-        ReactUseResolver(),
+        AutoImportResolver({
+          path: resolve(__dirname, 'node_modules/react-use/lib'),
+          resolve: (name) => {
+            return {
+              module: 'react-use',
+              name,
+            }
+          },
+        }),
         // Forma components auto import resolver
-        Forma36Resolver({
-          componentPrefix: 'forma', // i.e. you use the components as <FormaComponent />, feel free to use your preferred prefix
-          enabledComponents: [], // which components you actually want to enable, useful if you want to explicitly include/exclude something
+        AutoImportResolver({
+          path: resolve(__dirname, 'node_modules/@contentful/forma-36-react-components/dist/components'),
+          prefix: 'forma', // i.e. you use the components as <FormaComponent />, feel free to use your preferred prefix
+          resolve: (name, slice) => ({
+            module: '@contentful/forma-36-react-components',
+            from: pascalCase(slice),
+          }),
         }),
       ],
       imports: [
         'react',
         {
-          '@/resolver/utils': ['pascalize', 'camelToKebab', 'camelize', 'capitalize'],
+          scule: ['pascalCase', 'camelCase', 'kebabCase', 'snakeCase', 'upperFirst', 'lowerFirst', 'splitByCase'],
         },
       ],
     }),

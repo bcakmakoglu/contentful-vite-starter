@@ -1,5 +1,4 @@
 import { EditorExtensionSDK, EntryAPI } from '@contentful/app-sdk'
-import { css } from '@emotion/css'
 
 interface EditorProps {
   sdk: EditorExtensionSDK
@@ -16,7 +15,7 @@ const Entry = ({ sdk }: EditorProps) => {
             key={f.id}
             name={f.id}
             id={f.id}
-            labelText={capitalize(f.id)}
+            labelText={upperFirst(f.id)}
             required={f.required}
             value={f.getValue()}
             onChange={(e) => {
@@ -31,11 +30,7 @@ const Entry = ({ sdk }: EditorProps) => {
   })
 
   return (
-    <FormaForm
-      className={css({
-        padding: 20,
-      })}
-    >
+    <FormaForm className="p-[20px]">
       {fields}
       <FormaButton onClick={() => sdk.dialogs.selectSingleAsset()}>Check Assets</FormaButton>
     </FormaForm>

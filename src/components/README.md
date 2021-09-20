@@ -1,7 +1,8 @@
 # Components
 
 All components are auto-registered by default.
-For auto-imports to properly work, component names should be in PascalCase.
+For auto-imports to properly work, 
+component names should be in PascalCase and the default export.
 
 Example:
 ```tsx

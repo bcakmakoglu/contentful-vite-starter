@@ -1,5 +1,4 @@
 import { AppExtensionSDK } from '@contentful/app-sdk'
-import { css } from '@emotion/css'
 
 export interface AppInstallationParameters {}
 
@@ -50,7 +49,7 @@ const Config = (props: ConfigProps) => {
   }, [props.sdk])
 
   return (
-    <FormaWorkbench className={css({ margin: '80px' })}>
+    <FormaWorkbench className="m-[80px]">
       <FormaForm>
         <FormaHeading>App Config</FormaHeading>
         <FormaParagraph>Welcome to your contentful app. This is your config page.</FormaParagraph>

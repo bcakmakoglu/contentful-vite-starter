@@ -1,4 +1,4 @@
-import { kebabCase, pascalCase } from 'scule'
+import { kebabCase } from 'scule'
 import { ImportInfo } from 'unplugin-auto-import/dist/types'
 
 import { scan } from './utils'
@@ -24,28 +24,28 @@ function validFile(name: string) {
 }
 
 function inCollection(name: string, collections?: string[]) {
-  return (
-    (collections && collections.find((collection) => collection.toLowerCase().startsWith(name.toLowerCase()))) ||
-    !collections ||
-    !collections.length
-  )
+  return (collections && collections.find((collection) => collection.startsWith(name))) || !collections || !collections.length
 }
 
 const Resolver: (options?: Options) => (name: string) => ImportInfo | undefined = (options) => {
-  const { path, resolve = { module: '', name: '', from: undefined }, prefix: rawPrefix, enabledCollections } = options ?? {}
+  const { path, resolve = { module: '', name: '', from: undefined }, prefix: rawPrefix, enabledCollections = [] } = options ?? {}
   if (!path || path === '') throw Error('No path specified in resolver! Check your vite.config.ts')
 
   let collection: string[] = scan(path, validFile)
 
   return (name: string) => {
+    if (!name) return
     const prefix = rawPrefix ? `${kebabCase(rawPrefix)}-` : ''
     const kebab = kebabCase(name)
+
     if (!kebab.startsWith(prefix)) return
 
     const slice = kebab.slice(prefix.length)
-    if (!inCollection(slice, enabledCollections)) return
 
-    if (collection.some((item) => pascalCase(slice) === pascalCase(item))) {
+    const resolvableName = name.slice(prefix.length > 0 ? prefix.length - 1 : 0)
+    if (!inCollection(resolvableName, enabledCollections)) return
+
+    if (collection.some((item) => item === resolvableName)) {
       let importInfo: ImportInfo = {
         module: '',
         name: '',

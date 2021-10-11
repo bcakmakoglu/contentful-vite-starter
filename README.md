@@ -40,9 +40,9 @@ Build a Contentful App using Vite. 🍟
 ## 🛠 Setup
 ```bash
 # create a new project
-$ npx degit bcakmakoglu/vite-contentful-app-template my-app
+$ npx degit bcakmakoglu/contentful-vite-starter my-app
 # or just clone the repo
-$ git clone bcakmakoglu/vite-contentful-app-template my-app
+$ git clone https://github.com/bcakmakoglu/contentful-vite-starter.git my-app
 
 # you're free to use the package manager of your choosing
 $ pnpm install
